@@ -1,10 +1,13 @@
 from g4f.client import Client # gpt без огранечений
-from cards import base # добавляем базу  вопросов с соседнего файла
+import json
 from googletrans import Translator # библиотека для перевода от гугла
 
 translator = Translator()#создаём объект
 
 client = Client()#необхоимость как на 2 строчки выше
+
+with open("cards.json","r", encoding="utf-8") as file:
+    base = json.load(file)
 
 for i in base:
     print(i, end = ":\n") #выводит   card1: 
