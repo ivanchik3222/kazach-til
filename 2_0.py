@@ -31,7 +31,7 @@ def func(card_id):
 if __name__ == '__main__':
 
     with Pool(5) as p:
-        list_of_out = p.map(func, range(13))
+        list_of_out = p.map(func, range(12))
     with open("result.txt", "w", encoding="utf-8") as out_file:
         for i in list_of_out:
             for j in i:
