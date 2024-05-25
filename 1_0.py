@@ -1,3 +1,4 @@
+# не рекомендуется к запуску , версия устарелла
 from g4f.client import Client # gpt без огранечений
 import json
 from googletrans import Translator # библиотека для перевода от гугла
