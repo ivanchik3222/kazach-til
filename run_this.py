@@ -25,9 +25,6 @@ def func(card_id):
     return result
 
 
-
-# print(func(0))
-
 if __name__ == '__main__':
 
     with Pool(5) as p:
