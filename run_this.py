@@ -17,13 +17,12 @@ def func(card_id):
         
         response = client.chat.completions.create(
             model="gpt-4-turbo",
-            messages=[{"role": "user", "content": "очень кратко в пару слов ответь на  вопрос: " + translator.translate(j, src='kk', dest='en').text},],
+            messages=[{"role": "user", "content": "Beantworten Sie die Frage ganz kurz in wenigen Worten:" + translator.translate(j, src='kk', dest='de').text},],
         ) #запрос 
 
-        result.append(["вопрос " + str(base["card"+str(card_id+1)].index(j) + 1) + ": " + j  ,  response.choices[0].message.content])
+        result.append(["вопрос " + str(base["card"+str(card_id+1)].index(j) + 1) + ": " + j, translator.translate( response.choices[0].message.content, src='de', dest='kk').text])
 
     return result
-
 
 if __name__ == '__main__':
 
@@ -39,4 +38,4 @@ if __name__ == '__main__':
                 print()
                 out_file.write(j[0]+"\n")
                 out_file.write("ответ:" + j[1] + "\n")
-                out_file.write("\n")
+                out_file.write(" ")
